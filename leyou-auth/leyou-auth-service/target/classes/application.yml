@@ -1,0 +1,34 @@
+server:
+  port: 2900
+
+spring:
+  application:
+    name: auth-service
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:2100/eureka
+    #拉取微服务间隔
+    registry-fetch-interval-seconds: 5
+  instance:
+    #心跳间隔
+    lease-renewal-interval-in-seconds: 5
+    #失效时间
+    lease-expiration-duration-in-seconds: 15
+
+
+#自定义jwt配置,
+leyou:
+  jwt:
+    #生成公钥和私钥的基础密码
+    secret: klklklklklklkl
+    #保存公钥路径
+    publicKeyPath: F:\\keys\\rsa.pub
+    #保存私钥路径
+    privateKeyPath: F:\\keys\\rsa.pri
+    #过期时间，单位分钟
+    expire: 30
+
+    cookieName: LY_TOKEN

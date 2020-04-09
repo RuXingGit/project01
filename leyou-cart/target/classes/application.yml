@@ -1,0 +1,28 @@
+server:
+  port: 3000
+spring:
+  application:
+    name: cart-service
+  redis:
+    host: 127.0.0.1
+    port: 6300
+    password: 123456
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:2100/eureka
+    #拉取微服务周期
+    registry-fetch-interval-seconds: 5
+  instance:
+    #心跳
+    lease-renewal-interval-in-seconds: 5
+    #存活时间
+    lease-expiration-duration-in-seconds: 15
+
+#公钥 token名字
+leyou:
+  jwt:
+    #保存公钥路径
+    publicKeyPath: F:\\keys\\rsa.pub
+    cookieName: LY_TOKEN

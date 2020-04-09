@@ -1,0 +1,40 @@
+server:
+  port: 2800
+
+spring:
+  application:
+    name: user-service
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/leyou
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: leyou
+    password: 123456
+    virtual-host: /leyou
+    template:
+      #默认交换机 ，在调用convertAndSend方法时可以不用指定交换机
+      exchange: LEYOU.ITEM.EXCHANGE
+  redis:
+    host: 127.0.0.1
+    port: 6300
+    password: 123456
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:2100/eureka
+  instance:
+    #过期时间
+    lease-expiration-duration-in-seconds: 15
+    #心跳时间间隔
+    lease-renewal-interval-in-seconds: 5
+
+mybatis:
+  #别名扫描
+  type-aliases-package: com.leyou.item.pojo

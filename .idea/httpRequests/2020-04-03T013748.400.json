@@ -1,0 +1,7 @@
+{
+  "timestamp": "2020-04-03T05:37:48.816+0000",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Required String parameter 'phone' is not present",
+  "path": "/code"
+}

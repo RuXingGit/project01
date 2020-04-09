@@ -1,0 +1,33 @@
+server:
+  port: 2500
+spring:
+  application:
+    name: search-service
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: leyou
+    password: 123456
+    virtual-host: /leyou
+
+  data:
+    elasticsearch:
+      cluster-name: my-application
+      #elasticsearch java访问地址
+      cluster-nodes: 127.0.0.1:9300
+  jackson:
+    #json不对属性值是null的字段解析
+    default-property-inclusion: non_null
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:2100/eureka
+
+    #设置拉取服务的间隔时间
+    registry-fetch-interval-seconds: 5
+  instance:
+    #过期时间
+    lease-expiration-duration-in-seconds: 15
+    #心跳时间
+    lease-renewal-interval-in-seconds: 5
